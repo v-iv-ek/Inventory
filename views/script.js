@@ -7,7 +7,6 @@ async function handleSubmit(event) {
     price: event.target.price.value,
     qty: event.target.quantity.value,
   };
-  console.log(items);
   const itemData = await axios.post(`${reqUrl}`, items);
   displayItemDetails(itemData.data.data);
 }
@@ -35,15 +34,35 @@ function displayItemDetails(itemData) {
   buyOne.innerText = "BuyOne";
   tr.appendChild(buyOne);
   tablebody.appendChild(tr);
+  const buyTwo = document.createElement("button");
+  buyTwo.setAttribute("id", "two");
+  buyTwo.innerText = "BuyTwo";
+  tr.appendChild(buyTwo);
+  tablebody.appendChild(tr);
   const minusOne = tr.querySelector("#one");
-  minusOne.addEventListener("click",async function(){
-    const quantityMinus=document.querySelector("td")
-    console.log(quantityMinus)
-    console.log(itemData.id)
-    const minus=await axios.put(`${reqUrl}/${itemData.id}`)
-    
-    
-  })
+  minusOne.addEventListener("click", async function () {
+    const qty = itemData.Quantity - 1;
+    const items = {
+      name: itemData.ItemName,
+      desc: itemData.Description,
+      price: itemData.Price,
+      qty: qty,
+    };
 
+    const minus = await axios.patch(`${reqUrl}/${itemData.id}`,{Quantity:qty});
+    // const restored = await axios.post(`${reqUrl}`, items);
+  });
+  const minusTwo = tr.querySelector("#two");
+  minusTwo.addEventListener("click", async function () {
+    const qty = itemData.Quantity - 2;
+    const items = {
+      name: itemData.ItemName,
+      desc: itemData.Description,
+      price: itemData.Price,
+      qty: qty,
+    };
+
+    const minus = await axios.patch(`${reqUrl}/${itemData.id}`);
+    // const restored = await axios.post(`${reqUrl}`, items);
+  });
 }
-

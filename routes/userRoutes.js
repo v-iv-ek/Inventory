@@ -4,7 +4,7 @@ const userRoutes=require("../Controllers/userController")
 
 router.get("/item",userRoutes.getItemData)
 router.post("/item",userRoutes.postItemData)
-router.put("/item/:id",userRoutes.putItemData);
+router.patch("/item/:id",userRoutes.patchItemData);
 
 
 module.exports=router;

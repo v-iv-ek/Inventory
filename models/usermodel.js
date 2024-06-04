@@ -23,8 +23,6 @@ const data=user.define('groceryDetails',{
     Quantity:{
         type:Sequelize.INTEGER,
          allowNUll:false
-    }
-    
-
+    }  
 })
 module.exports=data

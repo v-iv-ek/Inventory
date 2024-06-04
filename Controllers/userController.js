@@ -1,3 +1,4 @@
+const { where } = require("sequelize");
 const sequelize = require("../models/usermodel");
 exports.postItemData = async (req, res, next) => {
   try {
@@ -33,12 +34,21 @@ exports.getItemData=async (req,res,next)=>{
     }
 
 }
-exports.putItemData=async (req,res,next)=>{
-    try{
-        const id=req.params.id
+exports.patchItemData=async (req,res,next)=>{
+    try{        
+      const id=req.params.id
       const getData=await sequelize.findByPk(id)
-      console.log(getData.dataValues)
-      res.status(200).json(getData.dataValues);
+      getData.dataValues.Quantity=req.body.Quantity
+      console.log(getData)
+      if (!getData) {
+        return res.status(404).json({ error: "Item not found" });
+    } 
+
+      
+      await getData.save()
+  
+         
+    res.status(200).json(getData.dataValues);
     }
     catch(err){
         console.log(err)
