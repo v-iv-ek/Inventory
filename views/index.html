@@ -3,19 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pracice</title>
-    <script src="script.js"></script>
+    <title>Inventory Management</title>
+    <script src="script.js" ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.2/axios.min.js" integrity="sha512-JSCFHhKDilTRRXe9ak/FJ28dcpOJxzQaCd3Xg8MyF6XFjODhy/YMCM8HW0TFDckNHWUewW+kfvhin43hKtJxAw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link  rel= "stylesheet" href="app.css">
   </head>
   <body>
-    <form onsubmit="handleSubmit(event)">
+    <form onsubmit="handleSubmit(event)" id="items">
       <label for="Itemname">Itemname:</label>
       <input id="Itemname" name="Itemname" />
-      <label for="desc">Description</label>
+      <label for="desc">Description:</label>
       <input id="desc" name="desc" />
-      <label for="price">Price</label>
+      <label for="price">Price:</label>
       <input id="price" name="price" />
-      <label for="quantity">Quantity</label>
+      <label for="quantity">Quantity:</label>
       <input id="quantity" name="quantity" />
       <button type="submit">Add Items</button>
     </form>
@@ -28,7 +29,6 @@
         <th>Quantity</th>
         <th>Buy 1 Item</th>
         <th>Buy 2 Item</th>
-        <th>Buy 3 Item</th>
       </tr>
     </table>
   </body>

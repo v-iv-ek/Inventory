@@ -10,7 +10,6 @@ exports.postItemData = async (req, res, next) => {
     if (!name || !desc || !price || !qty) {
         throw new Error("All Input Fields Mandatory");
     }
-    console.log(req.body);
     const data = await sequelize.create({
       ItemName: name,
       Description: desc,
@@ -35,20 +34,12 @@ exports.getItemData=async (req,res,next)=>{
 
 }
 exports.patchItemData=async (req,res,next)=>{
-    try{        
-      const id=req.params.id
-      const getData=await sequelize.findByPk(id)
-      getData.dataValues.Quantity=req.body.Quantity
-      console.log(getData)
-      if (!getData) {
-        return res.status(404).json({ error: "Item not found" });
-    } 
-
-      
-      await getData.save()
-  
+    try{      
+      const id=req.params.id;  
+      const getData2=await sequelize.update({Quantity:req.body.Quantity},{where :{id:id}}); 
+    
          
-    res.status(200).json(getData.dataValues);
+    res.status(200).json(getData2);
     }
     catch(err){
         console.log(err)

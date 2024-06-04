@@ -1,0 +1,41 @@
+table{
+    margin: 50px;
+    border: 1px solid black;
+    text-align: center;
+}
+#items{
+    text-align: center;
+    font-size: 1.6em;
+}
+input{
+    height: 2em;
+    
+}
+button{
+    height: 2.3em;
+    cursor: pointer;
+}
+
+#one,#two{
+    margin-right: 50px;
+    border: none;
+    background-color: rgb(226, 212, 19);
+    width: 100%;
+    height:30px;
+    color:rgb(3, 184, 109);
+    border-radius: 5px;
+    font-size: 0.8em;
+    cursor: pointer;
+}
+table, th, td {
+    border: 1px solid;
+    border-collapse: collapse;
+  }
+td{
+    width: 10%;
+    font-size: 1.3em;
+}
+th{
+    font-size: 25px;
+}
+
