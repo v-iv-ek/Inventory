@@ -58,6 +58,7 @@ function displayItemDetails(itemData) {
   const buyOne = createButton(tr, "one", "BuyOne");
   // creating a button
   const buyTwo = createButton(tr, "two", "BuyTwo");
+  const buyThree = createButton(tr, "two", "BuyThree");
 
   tablebody.appendChild(tr);
  //funvtion to buy one qty
@@ -82,8 +83,18 @@ function displayItemDetails(itemData) {
       handleQuantity(itemData.id, { Quantity: itemData.Quantity - 2 })
     }
     window.location.reload();
-  }
-    
+  }    
+  );
+  buyThree.addEventListener("click", function(){
+    if(itemData.Quantity<=2){
+      alert("Product not  available");
+      handleQuantity(itemData.id, { Quantity: itemData.Quantity })
+    }
+    else{
+      handleQuantity(itemData.id, { Quantity: itemData.Quantity - 3})
+    }
+    window.location.reload();
+  }    
   );
 }
 //function to update the quantity decrease in database
